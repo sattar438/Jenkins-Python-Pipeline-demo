@@ -40,3 +40,20 @@ jobs:
       run: |
        pip install --upgrade pip
        pip install -r requirements.txt
+  job3 :
+    runs-on: ubuntu-latest
+    env:
+      PYTHON_VERSION: 3.9
+    steps:
+    - name: Clone the repo
+      uses: actions/checkout@v6
+    - name: Install Python on runner
+      env:
+       PYTHON_VERSION: 3.12
+      uses: actions/setup-python@v6
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+    - name: Install python dependencies
+      run: |
+       pip install --upgrade pip
+       pip install -r requirements.txt     
